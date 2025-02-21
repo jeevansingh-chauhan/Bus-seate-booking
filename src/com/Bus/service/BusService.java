@@ -12,7 +12,7 @@ public Bus getBusByID () throws Exception ;
 	
 	public List<Bus> getAllBus() throws Exception ;
 	
-	public String  updateBus(int BusId ,String BusName ,String BusType,int  TotalSeats, int  AvailableSeate)throws Exception ; 
+	public String  updateBus(int BusId,String BusName ,String BusType,int  TotalSeats, int  AvailableSeate )throws Exception ; 
 	
 	
 	public String  deleteBus(int Busid) throws Exception;

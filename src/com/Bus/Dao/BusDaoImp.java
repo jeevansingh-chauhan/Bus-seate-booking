@@ -1,7 +1,7 @@
 package com.Bus.Dao;
 import java.sql.Connection;	
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +10,8 @@ import com.Bus.model.Bus;
 
 
 
-public  class BusDaoImp<resultSet> implements BusDao{
-
-	
-
-
-
-	@Override	
+public  class BusDaoImp implements BusDao{
+@Override	
 	public  String saveBus(Bus bst) {
 	 	// TODO Auto-generated method stub
         String a = null  ;
@@ -55,32 +50,40 @@ public  class BusDaoImp<resultSet> implements BusDao{
 
 
 	@Override
-	public <Resultset> List<Bus> getAllBus() throws Exception {
+	public  List<Bus > getAllBus() throws Exception {
 		// TODO Auto-generated method stub
-		 List<Bus> buses = new ArrayList<>();
+		 List<Bus> getAll = new ArrayList<>();
 		 ResultSet resultSet = null;
 		    PreparedStatement ppsmt = null;
 		    Connection c = null;
-
+		    String a=null;
 		    try {
 		        String query = "SELECT * FROM Bus";
 		        c = Dao.getDao().getConnection();
 		        ppsmt = c.prepareStatement(query);
-		        resultSet= ppsmt.executeQuery();
+		        ResultSet rs= ppsmt.executeQuery();
 
 		        while (resultSet.next()) {
-		            int busId =resultSet.getInt("BusID");
-		            String name = resultSet.getString("Name");
-		            String course =resultSet.getString("Course");
-		            String address = resultSet.getString("Address");
+		             int BusId =resultSet.getInt("BusId");
+		             String BusName = resultSet.getString("BusName");
+		            String BusType = resultSet.getString ("BusType");
+		             int  TotalSeats =resultSet.getInt ("TotalSeats");
+		           int AvailableSeate = resultSet.getInt(" AvailableSeats");
 
-		            System.out.println("BusId: " + busId + ", Name: " + name + ", Course: " + course + ", Address: " + address);
-
-		            buses.add(new Bus(busId, name, course, address));  // Assuming Bus has a constructor
-		        }
-		    } catch (SQLException e) {
+		           
+		         ///  buses.add("Bus ID: " + BusId + ", BusName: " + BusName + ", BusType: " + BusType + 
+		       // 	          ", Total Seats: " + TotalSeats + ", Available: " + AvailableSeate);
+//
+		        }  
+		          // Assuming Bus has a constructor
+		    }
+		    catch (SQLException e) {
 		        e.printStackTrace();
-		    } finally {
+		    } 
+		  
+		    finally {
+		    	
+		    	
 		    	
 		        try {
 		            if (resultSet != null)resultSet.close();
@@ -89,10 +92,9 @@ public  class BusDaoImp<resultSet> implements BusDao{
 		        } catch (SQLException e) {
 		            e.printStackTrace();
 		        }
+		    
 		    }
-		    return buses;
-		}
-
+		    return getAll;}
 	@Override
 	public String deleteBus(int Busid) throws Exception {
 		String a=null;

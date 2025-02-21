@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.Bus.Utilty.Dao;
 import com.Bus.model.Bus;
+import com.Bus.model.Customer;
 
 public class CustomerImplDao implements  CustomerDao {
 	
@@ -27,10 +28,11 @@ public class CustomerImplDao implements  CustomerDao {
 	public String updateCustomer() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	
 	}
 
 	@Override
-	public String saveCustomer(CustomerDao cst) {
+	public String saveCustomer(Customer cst) {
 	    String a = null  ;
 		
 			String query = "insert into Customer (CustomerId, Name, Email, Phone,Password) Values (?, ?, ?, ?, ?)";
@@ -48,7 +50,7 @@ public class CustomerImplDao implements  CustomerDao {
 				ppsmt.setString(4, cst.getPhone());
 				ppsmt.setString(5, cst.getPassword());  // Fixed method name
 
-				int ans  =  ppsmt.executeUpdate() ;
+		int ans  =  ppsmt.executeUpdate() ;
 			
 				if (ans>0 ){
 					a  = "Bus Have been saved" ;

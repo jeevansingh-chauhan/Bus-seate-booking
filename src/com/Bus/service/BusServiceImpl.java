@@ -28,13 +28,14 @@ public class BusServiceImpl implements BusService {
 	@Override
 	public List<Bus> getAllBus() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		   List<Bus> all =dao.getAllBus();
+		return all;
 	}
 
 	@Override
-	public    String updateBus(int BusID ,String BusName ,String BusType,int  TotalSeats,int  AvailableSeate) throws Exception {
+	public    String updateBus(int BusID,String BusName ,String BusType,int  TotalSeats,int  AvailableSeate) throws Exception {
 		// TODO Auto-generated method stub
-		  String U= dao.updateBus(BusID , BusName , BusType,  TotalSeats,  AvailableSeate );
+		  String U= dao.updateBus(BusID,BusName , BusType,  TotalSeats,  AvailableSeate);
 	    return U ;
 	}
 

@@ -9,7 +9,7 @@ import com.Bus.Dao.CustomerDao;
 import com.Bus.Utilty.Dao;
 
 public class CustomerServiceImpl implements CustomerService  {
-
+  CustomerService dao  =new CustomerServiceImpl();
 	@Override
 	public List<CustomerDao> getAllCustomer() throws Exception {
 		// TODO Auto-generated method stub
@@ -28,22 +28,15 @@ public class CustomerServiceImpl implements CustomerService  {
 		return null;
 	}
 
-	public String saveCustomer(com.Bus.model.Customer cst) {
-    String  c = dao.saveCustomer(cst) ;
+
+	
 		
-		return c;
-	}
 
 	@Override
-	public String save(CustomerService cst) throws Exception {
+	public String saveCustomer(com.Bus.model.Customer cst) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String Customer() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String  c = dao.saveCustomer(cst) ;
+		  return c;
 	}
 
 
