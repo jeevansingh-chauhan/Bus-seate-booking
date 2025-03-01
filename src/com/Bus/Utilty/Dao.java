@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
+//this is main project
 public class Dao {
 	// Dao class is a singleton class so only one object can be created by this DAO Class
 	
